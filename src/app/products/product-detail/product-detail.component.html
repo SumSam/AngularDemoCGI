@@ -13,8 +13,7 @@
               </div>
               <div class='row'>
                   <div class='col-md-3'>Code:</div>
-                  <!-- <div class='col-md-6'>{{product.productCode | lowercase | convertToSpaces: '-'}}</div> -->
-                  <div class='col-md-6'>{{product.productCode}}</div>
+                  <div class='col-md-6'>{{product.productCode | lowercase | convertToSpaces: '-'}}</div>
               </div>
               <div class='row'>
                   <div class='col-md-3'>Description:</div>
@@ -26,7 +25,7 @@
               </div>
               <div class='row'>
                   <div class='col-md-3'>Price:</div>
-                  <div class='col-md-6'>{{product.price|currency:'USD':true}}</div>
+                  <div class='col-md-6'> {{ product.price | currency:'USD':'symbol':'1.2-2'}}</div>
               </div>
               <div class='row'>
                   <div class='col-md-3'>5 Star Rating:</div>
