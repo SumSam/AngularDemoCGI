@@ -1,0 +1,12 @@
+<div *ngFor='let product of products'>
+    <ad-accordion>
+      <div acc-title>
+        {{product.description}}
+      </div>
+      <div acc-body>
+        <ad-product-detail [product]="product"></ad-product-detail>
+      </div>
+    </ad-accordion>
+    <br>
+    <br>
+  </div>

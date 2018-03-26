@@ -1,6 +1,7 @@
 <div class='panel panel-primary'>
   <div class='panel-heading'>
-      {{pageTitle}}
+      {{pageTitle}} <br>
+      Product Description: {{prodDescFromChild}}
   </div>
   <div class='panel-body'>
       <div class='row'>
@@ -42,15 +43,15 @@
                               [style.width.px]='imageWidth'
                               [style.margin.px]='imageMargin'>
                       </td>
-                     <td><a [routerLink]="['/products', product.productId]">
+                     <!-- <td><a [routerLink]="['/products', product.productId]">
                               {{ product.productName }}
                           </a>
-                    </td>
-                      <!-- <td (click) = 'loadDetail(product)'>
+                    </td> -->
+                      <td (click) = 'loadDetail(product)'>
                           {{ product.productName }}        
-                      </td> -->
-                      <td>{{ product.productCode }}</td>
+                      </td>
                       <!-- <td>{{ product.productCode | lowercase | convertToSpaces: '-' }}</td> -->
+                      <td (click)='invokeChild(product.productCode)'>{{ product.productCode}}</td>
                       <td>{{ product.releaseDate }}</td>
                       <td>{{ product.price | currency:'USD':true:'1.2-2'}}</td>
                       <td>
@@ -67,3 +68,4 @@
 <div *ngIf='errorMessage' class='alert alert-danger'>
   Error: {{ errorMessage }}
 </div>
+<ad-product-detail [product]= "selectedProduct" (callParent)= "logProductName($event)"></ad-product-detail>
