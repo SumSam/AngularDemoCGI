@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/catch';
@@ -7,22 +7,64 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 
 import { IProduct } from './product';
+import { RequestOptions } from '@angular/http';
 
 @Injectable()
 export class ProductService {
-    private _productUrl = './api/products/products.json';
+
+    private _httpOptions = {
+        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+
+    private _baseUrl = 'api/products';
 
     constructor(private _http: HttpClient) { }
 
     getProducts(): Observable<IProduct[]> {
-        return this._http.get<IProduct[]>(this._productUrl)
+        return this._http.get<IProduct[]>(this._baseUrl)
             .do(data => console.log('All: ' + JSON.stringify(data)))
             .catch(this.handleError);
     }
 
     getProduct(id: number): Observable<IProduct> {
+        if (id === 0) {
+            return Observable.of(this.initializeProduct());
+        }
         return this.getProducts()
-            .map((products: IProduct[]) => products.find(p => p.productId === id));
+            .map((products: IProduct[]) => products.find(p => p.productId === id))
+            // IMP! Operators can be chained, output from previous operator acts like
+            // an input to the next operator map => do
+            .do(product => console.log('getProduct: ' + JSON.stringify(product)))
+            .catch(this.handleError);
+    }
+
+    deleteProduct(id: number): Observable<Response> {
+        const url = `${this._baseUrl}/${id}`;
+        return this._http.delete(url, this._httpOptions)
+            .do(data => console.log('deleteProduct: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    saveProduct(product: IProduct): Observable<IProduct> {
+
+        if (product.productId === 0) {
+            return this.createProduct(product);
+        }
+        return this.updateProduct(product);
+    }
+
+    private createProduct(product: IProduct): Observable<IProduct> {
+        product.productId = undefined;
+        return this._http.post<IProduct>(this._baseUrl, product, this._httpOptions)
+            .do(data => console.log('createProduct: ' + JSON.stringify(data)))
+            .catch(this.handleError);
+    }
+
+    private updateProduct(product: IProduct): Observable<IProduct> {
+        const url = `${this._baseUrl}/${product.productId}`;
+        return this._http.put<IProduct>(url, product, this._httpOptions)
+            .do(data => console.log('updateProduct: ' + JSON.stringify(data)))
+            .catch(this.handleError);
     }
 
     private handleError(err: HttpErrorResponse) {
@@ -39,5 +81,21 @@ export class ProductService {
         }
         console.error(errorMessage);
         return Observable.throw(errorMessage);
+    }
+
+    private initializeProduct(): IProduct {
+        // Return an initialized object
+        return {
+            productId: 0,
+            productName: null,
+            productCode: null,
+            category: null,
+            tags: [],
+            releaseDate: null,
+            price: null,
+            description: null,
+            starRating: null,
+            imageUrl: null
+        };
     }
 }

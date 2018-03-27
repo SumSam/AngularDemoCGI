@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
+import { ProductData } from './InMemoryWebApi/ProductData';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 
 @NgModule({
@@ -19,6 +21,7 @@ import { ProductModule } from './products/product.module';
   imports: [
     BrowserModule,
     HttpClientModule,
+    InMemoryWebApiModule.forRoot(ProductData, { delay: 200 }),
     ProductModule,
     AppRoutingModule
   ],
