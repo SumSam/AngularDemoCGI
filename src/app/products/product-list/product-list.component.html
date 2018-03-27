@@ -22,10 +22,10 @@
                 <thead>
                     <tr>
                         <th>
-                            <button class='btn btn-primary'
+                            <!-- <button class='btn btn-primary'
                                 (click)='toggleImage()'>
                                 {{showImage ? 'Hide' : 'Show'}} Image
-                            </button>
+                            </button> -->
                         </th>
                         <th>Product</th>
                         <th>Code</th>
@@ -37,6 +37,11 @@
                 <tbody>
                     <tr *ngFor='let product of products'>
                         <td>
+                                <a [routerLink]="['/products', product.productId]">
+                                   Edit
+                                </a>
+
+                            <!-- the following img not used , only for illustration of property binding -->
                             <img *ngIf='showImage'
                                 [src]='product.imageUrl'
                                 [title]='product.productName'
@@ -47,7 +52,7 @@
                                 {{ product.productName }}
                             </a>
                       </td> -->
-                        <td (click) = 'loadDetail(product)'>
+                        <td class='pointable' (click) = 'loadDetail(product)'>
                             {{ product.productName }}        
                         </td>
                         <td adHighlight 
@@ -59,6 +64,7 @@
                             [defaultColor]="'yellow'" >
                             {{ product.price | currency:'USD':'symbol':'1.2-2'}}</td>
                         <td>
+                                {{product.starRating}}
                             <!-- <pm-star [rating]='product.starRating'
                                 (ratingClicked)='onRatingClicked($event)'> 
                             </pm-star>-->

@@ -8,8 +8,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductAccordionComponent } from './product-accordion/product-accordion.component';
 import { SharedModule } from '../shared/shared.module';
-
-
+import { ProductEditComponent } from './product-edit/product-edit.component';
+import { ProductCodeValidator } from './product-code.validator';
 
 @NgModule({
   imports: [
@@ -18,7 +18,9 @@ import { SharedModule } from '../shared/shared.module';
   ],
   declarations: [ProductListComponent,
                   ProductDetailComponent,
-                  ProductAccordionComponent],
+                  ProductAccordionComponent,
+                  ProductEditComponent,
+                  ProductCodeValidator],
   providers: [ProductService]
 })
 export class ProductModule { }

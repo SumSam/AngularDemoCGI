@@ -11,7 +11,7 @@ import { ConvertToSpacesPipe } from './convert-to-spaces.pipe';
   imports: [ CommonModule],
   exports : [
     CommonModule,
-    FormsModule,
+    FormsModule, // IMP! All directives for template driven forms reside in this module.
     AccordionComponent,
     HighlightDirective,
     CustomLoopDirective,

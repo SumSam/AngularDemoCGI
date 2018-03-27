@@ -45,20 +45,6 @@ export class ProductDetailComponent implements OnChanges, OnInit, DoCheck, OnDes
     // unsubscribing here is a common practice in Angular
   }
 
-  // ngOnInit() {
-  //   // const param = this._route.snapshot.paramMap.get('id');
-  //   console.log('ngOnInit');
-  // }
-
-  // ngDoCheck() {
-  //   console.log('ngDoCheck' + ProductDetailComponent.counter++);
-  // }
-
-  // ngOnChanges(changes: { [propKey: string]: SimpleChange }) {
-  //   // this.getProduct(this.ip_Product.productId);
-  //   console.log(this.product);
-  // }
-
   handleClick(): void {
     this.callParent.emit(this.product.description);
   }
