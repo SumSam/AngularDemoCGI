@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/throw';
@@ -8,27 +8,27 @@ import 'rxjs/add/operator/map';
 
 import { IProduct } from './product';
 import { RequestOptions } from '@angular/http';
+import { URL_TOKEN } from '../app.constants';
 
-@Injectable()
+@Injectable() // IMP! This is needed only if the service itself has dependencies, which is our case
 export class ProductService {
 
     private _httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
-    private _baseUrl = 'api/products';
-
-    constructor(private _http: HttpClient) { }
+    instanceCounter = 0;
+    constructor(private _http: HttpClient, @Inject(URL_TOKEN) private _baseUrl: string) { }
 
     getProducts(): Observable<IProduct[]> {
         return this._http.get<IProduct[]>(this._baseUrl)
-            .do(data => console.log('All: ' + JSON.stringify(data)))
+            .do(data => console.log('All fetched'))
             .catch(this.handleError);
     }
 
     getProduct(id: number): Observable<IProduct> {
         if (id === 0) {
-            return Observable.of(this.initializeProduct());
+            return Observable.create(this.initializeProduct());
         }
         return this.getProducts()
             .map((products: IProduct[]) => products.find(p => p.productId === id))

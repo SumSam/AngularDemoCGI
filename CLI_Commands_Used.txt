@@ -1,0 +1,300 @@
+
+C:\Users\sumanth.sampath\angular-demo>
+C:\Users\sumanth.sampath\angular-demo>ng g c products/produc-detail --spec false
+
+  create src/app/products/produc-detail/produc-detail.component.html (32 bytes)
+  create src/app/products/produc-detail/produc-detail.component.ts (295 bytes)
+  create src/app/products/produc-detail/produc-detail.component.css (0 bytes)
+  update src/app/products/product.module.ts (605 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g c products/produc-detail --spec false
+
+  create src/app/products/produc-detail/produc-detail.component.html (32 bytes)
+  create src/app/products/produc-detail/produc-detail.component.ts (295 bytes)
+  create src/app/products/produc-detail/produc-detail.component.css (0 bytes)
+  update src/app/products/product.module.ts (618 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g c products/product-detail --spec fals
+e
+  create src/app/products/product-detail/product-detail.component.html (33 bytes
+)
+  create src/app/products/product-detail/product-detail.component.ts (299 bytes)
+
+  create src/app/products/product-detail/product-detail.component.css (0 bytes)
+  update src/app/products/product.module.ts (622 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g c products/product-accordion --spec f
+alse -d
+  create src/app/products/product-accordion/product-accordion.component.html (36
+ bytes)
+  create src/app/products/product-accordion/product-accordion.component.ts (311
+bytes)
+  create src/app/products/product-accordion/product-accordion.component.css (0 b
+ytes)
+  update src/app/products/product.module.ts (742 bytes)
+
+NOTE: Run with "dry run" no changes were made.
+
+C:\Users\sumanth.sampath\angular-demo>ng g c products/product-accordion --spec f
+alse
+  create src/app/products/product-accordion/product-accordion.component.html (36
+ bytes)
+  create src/app/products/product-accordion/product-accordion.component.ts (311
+bytes)
+  create src/app/products/product-accordion/product-accordion.component.css (0 b
+ytes)
+  update src/app/products/product.module.ts (742 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g c accordion --spec false - d
+  create src/app/accordion/accordion.component.html (28 bytes)
+  create src/app/accordion/accordion.component.ts (280 bytes)
+  create src/app/accordion/accordion.component.css (0 bytes)
+  update src/app/app.module.ts (871 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g c accordion --spec false
+error! src/app/accordion/accordion.component.html already exists.
+error! src/app/accordion/accordion.component.ts already exists.
+error! src/app/accordion/accordion.component.css already exists.
+
+C:\Users\sumanth.sampath\angular-demo>ng g m shared --spec false -d
+  create src/app/shared/shared.module.ts (190 bytes)
+
+NOTE: Run with "dry run" no changes were made.
+
+C:\Users\sumanth.sampath\angular-demo>ng g m shared module App --spec false -d
+  create src/app/shared/shared.module.ts (190 bytes)
+
+NOTE: Run with "dry run" no changes were made.
+
+C:\Users\sumanth.sampath\angular-demo>ng g m shared module App --spec false
+  create src/app/shared/shared.module.ts (190 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g d shared/highlight --spec false - d
+  create src/app/shared/highlight.directive.ts (146 bytes)
+  update src/app/shared/shared.module.ts (477 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g d shared/highlight --spec false
+error! src/app/shared/highlight.directive.ts already exists.
+
+C:\Users\sumanth.sampath\angular-demo>ng g d shared/highlight/highlight --spec f
+alse
+  create src/app/shared/highlight/highlight.directive.ts (146 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g d shared/customLoop/customLoop --spec
+ false
+  create src/app/shared/custom-loop/custom-loop.directive.ts (148 bytes)
+  update src/app/shared/shared.module.ts (607 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g p shared/convertToSpaces --spec false
+ - d
+  create src/app/shared/convert-to-spaces.pipe.ts (219 bytes)
+  update src/app/shared/shared.module.ts (717 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g p shared/convertToSpaces --spec false
+
+error! src/app/shared/convert-to-spaces.pipe.ts already exists.
+
+C:\Users\sumanth.sampath\angular-demo>ng g c products/product-edit --spec false
+  create src/app/products/product-edit/product-edit.component.html (31 bytes)
+  create src/app/products/product-edit/product-edit.component.ts (291 bytes)
+  create src/app/products/product-edit/product-edit.component.css (0 bytes)
+  update src/app/products/product.module.ts (954 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng lint
+
+
+All files pass linting.
+
+C:\Users\sumanth.sampath\angular-demo>git remote add origin https://sumanth-samp
+ath.visualstudio.com/_git/Angular%20Demo
+'git' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\sumanth.sampath\angular-demo>npm install angular-in-memory-web-api --sa
+ve
+angular-demo@0.0.0 C:\Users\sumanth.sampath\angular-demo
++-- UNMET PEER DEPENDENCY @angular/common@5.2.9
++-- UNMET PEER DEPENDENCY @angular/core@5.2.9
++-- UNMET PEER DEPENDENCY @angular/http@5.2.9
++-- angular-in-memory-web-api@0.6.0
++-- UNMET PEER DEPENDENCY jquery@1.9.1 - 3
++-- UNMET PEER DEPENDENCY popper.js@^1.12.9
+`-- UNMET PEER DEPENDENCY rxjs@5.5.7
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\ch
+okidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.1.2 (node_modules\wa
+tchpack\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.1.2 (node_modules\we
+bpack-dev-server\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN bootstrap@4.0.0 requires a peer of jquery@1.9.1 - 3 but none was instal
+led.
+npm WARN bootstrap@4.0.0 requires a peer of popper.js@^1.12.9 but none was insta
+lled.
+npm WARN angular-in-memory-web-api@0.6.0 requires a peer of @angular/common@^6.0
+.0-rc.0 but none was installed.
+npm WARN angular-in-memory-web-api@0.6.0 requires a peer of @angular/core@^6.0.0
+-rc.0 but none was installed.
+npm WARN angular-in-memory-web-api@0.6.0 requires a peer of @angular/http@^6.0.0
+-rc.0 but none was installed.
+npm WARN angular-in-memory-web-api@0.6.0 requires a peer of rxjs@^6.0.0-beta.1 b
+ut none was installed.
+
+C:\Users\sumanth.sampath\angular-demo>npm install
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\ch
+okidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.1.2 (node_modules\wa
+tchpack\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.1.2 (node_modules\we
+bpack-dev-server\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN bootstrap@4.0.0 requires a peer of jquery@1.9.1 - 3 but none was instal
+led.
+npm WARN bootstrap@4.0.0 requires a peer of popper.js@^1.12.9 but none was insta
+lled.
+npm ERR! Windows_NT 6.1.7601
+npm ERR! argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\
+node_modules\\npm\\bin\\npm-cli.js" "install"
+npm ERR! node v6.11.0
+npm ERR! npm  v3.10.10
+npm ERR! path C:\Users\sumanth.sampath\angular-demo\node_modules\angular-in-memo
+ry-web-api
+npm ERR! code EPERM
+npm ERR! errno -4048
+npm ERR! syscall unlink
+
+npm ERR! Error: EPERM: operation not permitted, unlink 'C:\Users\sumanth.sampath
+\angular-demo\node_modules\angular-in-memory-web-api'
+npm ERR!     at Error (native)
+npm ERR!  { Error: EPERM: operation not permitted, unlink 'C:\Users\sumanth.samp
+ath\angular-demo\node_modules\angular-in-memory-web-api'
+npm ERR!     at Error (native)
+npm ERR!   errno: -4048,
+npm ERR!   code: 'EPERM',
+npm ERR!   syscall: 'unlink',
+npm ERR!   path: 'C:\\Users\\sumanth.sampath\\angular-demo\\node_modules\\angula
+r-in-memory-web-api',
+npm ERR!   parent: 'angular-demo' }
+npm ERR!
+npm ERR! Please try running this command again as root/Administrator.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     C:\Users\sumanth.sampath\angular-demo\npm-debug.log
+
+C:\Users\sumanth.sampath\angular-demo>npm uninstall angular-in-memory-web-api --
+save
+npm WARN bootstrap@4.0.0 requires a peer of jquery@1.9.1 - 3 but none was instal
+led.
+npm WARN bootstrap@4.0.0 requires a peer of popper.js@^1.12.9 but none was insta
+lled.
+
+C:\Users\sumanth.sampath\angular-demo>npm install angular-in-memory-web-api@o.5.
+4 --save
+npm ERR! Windows_NT 6.1.7601
+npm ERR! argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\
+node_modules\\npm\\bin\\npm-cli.js" "install" "angular-in-memory-web-api@o.5.4"
+"--save"
+npm ERR! node v6.11.0
+npm ERR! npm  v3.10.10
+npm ERR! code ETARGET
+
+npm ERR! notarget No compatible version found: angular-in-memory-web-api@o.5.4
+npm ERR! notarget Valid install targets:
+npm ERR! notarget 0.6.0, 0.5.4, 0.5.3, 0.5.2, 0.5.1, 0.5.0, 0.4.6, 0.4.5, 0.4.4,
+ 0.4.3, 0.4.2, 0.4.1, 0.4.0, 0.3.2, 0.3.1, 0.3.0, 0.2.5, 0.2.4, 0.2.3, 0.2.2, 0.
+2.1, 0.2.0, 0.1.17, 0.1.16, 0.1.15, 0.1.14, 0.1.13, 0.1.12, 0.1.11, 0.1.10, 0.1.
+9, 0.1.8, 0.1.7, 0.1.6, 0.1.5, 0.1.4, 0.1.3, 0.1.2, 0.1.1, 0.1.0
+npm ERR! notarget
+npm ERR! notarget This is most likely not a problem with npm itself.
+npm ERR! notarget In most cases you or one of your dependencies are requesting
+npm ERR! notarget a package version that doesn't exist.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     C:\Users\sumanth.sampath\angular-demo\npm-debug.log
+
+C:\Users\sumanth.sampath\angular-demo>npm install angular-in-memory-web-api@0.5.
+4 --save
+angular-demo@0.0.0 C:\Users\sumanth.sampath\angular-demo
++-- angular-in-memory-web-api@0.5.4
++-- UNMET PEER DEPENDENCY jquery@1.9.1 - 3
+`-- UNMET PEER DEPENDENCY popper.js@^1.12.9
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.0.0 (node_modules\ch
+okidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.1.2 (node_modules\wa
+tchpack\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@^1.1.2 (node_modules\we
+bpack-dev-server\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@
+1.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"}
+)
+npm WARN bootstrap@4.0.0 requires a peer of jquery@1.9.1 - 3 but none was instal
+led.
+npm WARN bootstrap@4.0.0 requires a peer of popper.js@^1.12.9 but none was insta
+lled.
+
+C:\Users\sumanth.sampath\angular-demo>ng g s --spec = false --module=App - d
+  create src/app/=.service.spec.ts (344 bytes)
+  create src/app/=.service.ts (107 bytes)
+  update src/app/App.module.ts (1014 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g s AppLevelService --spec=false --modu
+le=App -d
+  create src/app/app-level-service.service.ts (121 bytes)
+  update src/app/App.module.ts (1058 bytes)
+
+NOTE: Run with "dry run" no changes were made.
+
+C:\Users\sumanth.sampath\angular-demo>ng g s AppLevelService --spec=false --modu
+le=App
+  create src/app/app-level-service.service.ts (121 bytes)
+  update src/app/App.module.ts (1058 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g s products/product-detail/ComponentLe
+velService --spec=false -d
+  create src/app/products/product-detail/component-level-service.service.ts (127
+ bytes)
+
+NOTE: Run with "dry run" no changes were made.
+
+C:\Users\sumanth.sampath\angular-demo>ng g s products/product-detail/ComponentLe
+velService --spec=false
+  create src/app/products/product-detail/component-level-service.service.ts (127
+ bytes)
+
+C:\Users\sumanth.sampath\angular-demo>ng g s SharedModule --spec=false --module=
+Shared -d
+  create src/app/shared-module.service.ts (118 bytes)
+  update src/app/Shared/Shared.module.ts (914 bytes)
+
+NOTE: Run with "dry run" no changes were made.
+
+C:\Users\sumanth.sampath\angular-demo>ng g s SharedModule --spec=false --module=
+Shared
+  create src/app/shared-module.service.ts (118 bytes)
+  update src/app/Shared/Shared.module.ts (914 bytes)
+
+C:\Users\sumanth.sampath\angular-demo>

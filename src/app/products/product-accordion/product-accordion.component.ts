@@ -5,7 +5,7 @@ import { ProductService } from '../product.service';
 @Component({
   selector: 'ad-product-accordion',
   templateUrl: './product-accordion.component.html',
-  styleUrls: ['./product-accordion.component.css']
+  styleUrls: ['./product-accordion.component.css'],
 })
 export class ProductAccordionComponent implements OnInit {
 

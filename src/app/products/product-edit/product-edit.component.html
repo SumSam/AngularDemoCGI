@@ -23,10 +23,10 @@
                     <span class="help-block" *ngIf="(productNameVar.touched ||
                                                      productNameVar.dirty || product.productId !== 0) &&
                                                      productNameVar.errors">
-                        <span *ngIf="productNameVar.errors.required">
+                        <span *ngIf="productForm.getControl(productNameVar).hasError('required')">
                             Product name is required.
                         </span>
-                        <span *ngIf="productNameVar.errors.minlength">
+                        <span *ngIf="productForm.getControl(productNameVar).hasError('minlength')">
                             Product name must be at least three characters.
                         </span>
                     </span>
@@ -49,13 +49,13 @@
                             name="productCode"
                             #productCodeVar="ngModel"
                             ad-cleanProd />
-                    <span class="help-block" *ngIf="(productForm.controls?.productCode?.touched ||
-                                productForm.controls?.productCode?.dirty || product.productId !== 0) &&
-                                productForm.controls?.productCode?.errors">
-                        <span *ngIf="productForm.controls?.productCode?.errors.required">
+                    <span class="help-block" *ngIf="(productForm.getControl(productCodeVar).touched ||
+                                productForm.getControl(productCodeVar).dirty || product.productId !== 0) &&
+                                productForm.getControl(productCodeVar).errors">
+                        <span *ngIf="productForm.getControl(productCodeVar).hasError('required')">
                             Product code is required.
                         </span>
-                        <span *ngIf="productForm.controls?.productCode?.errors.cleanProd">
+                        <span *ngIf="productForm.getControl(productCodeVar).hasError('cleanProd')">
                                 Product code should start with an alphabet or a number
                         </span>
                     </span>

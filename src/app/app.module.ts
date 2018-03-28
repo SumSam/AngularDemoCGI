@@ -9,7 +9,9 @@ import { WelcomeComponent } from './home/welcome.component';
 import { ProductModule } from './products/product.module';
 import { ProductData } from './InMemoryWebApi/ProductData';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-
+import { AppLevelService } from './app-level-service';
+import { SharedModule } from './shared/shared.module';
+import { BASE_URL, URL_TOKEN } from './app.constants';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
     ProductModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [AppLevelService, {provide: URL_TOKEN, useValue: BASE_URL}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

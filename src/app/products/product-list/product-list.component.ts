@@ -6,7 +6,7 @@ import { ProductDetailComponent } from '../product-detail/product-detail.compone
 @Component({
   selector: 'ad-product-list', // IMP! Selector not required for ROUTED components => this is a routed component.
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
   pageTitle = 'Product List';

@@ -10,6 +10,7 @@ import { ProductAccordionComponent } from './product-accordion/product-accordion
 import { SharedModule } from '../shared/shared.module';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductCodeValidator } from './product-code.validator';
+import { AppLevelService } from '../app-level-service';
 
 @NgModule({
   imports: [
@@ -17,10 +18,12 @@ import { ProductCodeValidator } from './product-code.validator';
     ProductsRoutingModule
   ],
   declarations: [ProductListComponent,
-                  ProductDetailComponent,
-                  ProductAccordionComponent,
-                  ProductEditComponent,
-                  ProductCodeValidator],
-  providers: [ProductService]
+    ProductDetailComponent,
+    ProductAccordionComponent,
+    ProductEditComponent,
+    ProductCodeValidator],
+    // replace with useClass implementation during demo
+  providers: [ProductService,
+    AppLevelService]
 })
 export class ProductModule { }
