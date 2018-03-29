@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -12,6 +12,7 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppLevelService } from './app-level-service';
 import { SharedModule } from './shared/shared.module';
 import { BASE_URL, URL_TOKEN } from './app.constants';
+import { AppHttpInterceptor } from './app.http-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,10 @@ import { BASE_URL, URL_TOKEN } from './app.constants';
     ProductModule,
     AppRoutingModule
   ],
-  providers: [AppLevelService, {provide: URL_TOKEN, useValue: BASE_URL}],
+  providers: [AppLevelService,
+    { provide: URL_TOKEN, useValue: BASE_URL },
+    { provide: HTTP_INTERCEPTORS, useClass: AppHttpInterceptor, multi: true }],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
