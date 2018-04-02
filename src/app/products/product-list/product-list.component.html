@@ -4,16 +4,15 @@
         Product Description: {{prodDescFromChild}}
     </div>
     <div class='panel-body'>
-        <div class='row'>
-            <div class='col-md-2'>Filter by:</div>
-            <div class='col-md-4'>
-                <!-- <input type='text' [(ngModel)]='listFilter' /> -->
-                <input type='text'  />
+        <div class="row">
+            <div class="col-md-2">Filter by:</div>
+            <div class="col-md-4">
+                <input type="text" [(ngModel)]="listFilter" />
             </div>
         </div>
-        <div class='row'>
-            <div class='col-md-6'>
-                <!-- h3<>Filtered by: {{listFilter}} </h3> -->
+        <div class="row" *ngIf="listFilter">
+            <div class="col-md-6">
+                <h3>Filtered by: {{listFilter}} </h3>
             </div>
         </div>
         <div class='table-responsive'>
@@ -35,9 +34,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of products | productFilter: listFilter'>
                         <td>
-                                <a [routerLink]="['/products', product.productId]">
+                                <a [routerLink]="['/products', product.productId, 'edit']">
                                    Edit
                                 </a>
 
@@ -48,13 +47,14 @@
                                 [style.width.px]='imageWidth'
                                 [style.margin.px]='imageMargin'>
                         </td>
-                       <!-- <td><a [routerLink]="['/products', product.productId]">
+                       <td><a [routerLink]="['/products', product.productId]"
+                        [queryParams]="{filterBy: listFilter}">
                                 {{ product.productName }}
                             </a>
-                      </td> -->
-                        <td class='pointable' (click) = 'loadDetail(product)'>
+                      </td>
+                        <!-- <td class='pointable' (click) = 'loadDetail(product)'>
                             {{ product.productName }}        
-                        </td>
+                        </td> -->
                         <td adHighlight 
                             [defaultColor]="'yellow'" 
                             (click)='invokeChild(product.productCode)'>{{ product.productCode | lowercase | convertToSpaces: '-'}}</td>
@@ -78,5 +78,5 @@
   <div *ngIf='errorMessage' class='alert alert-danger'>
     Error: {{ errorMessage }}
   </div>
-  <ad-product-detail [product]= "selectedProduct" (callParent)= "logProductName($event)"></ad-product-detail>
+  <!-- <ad-product-detail [product]= "selectedProduct" (callParent)= "logProductName($event)"></ad-product-detail> -->
   

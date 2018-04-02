@@ -11,6 +11,11 @@ import { SharedModule } from '../shared/shared.module';
 import { ProductEditComponent } from './product-edit/product-edit.component';
 import { ProductCodeValidator } from './product-code.validator';
 import { AppLevelService } from '../app-level-service';
+import { ProductFilterPipe } from './product-filter.pipe';
+import { ProductResolver } from './product-resolver.service';
+import { ProductEditInfoComponent } from './product-edit/product-edit-info/product-edit-info.component';
+import { ProductEditTagsComponent } from './product-edit/product-edit-tags/product-edit-tags.component';
+import { ProductEditGuard } from './product-edit-guard.service';
 
 @NgModule({
   imports: [
@@ -21,9 +26,14 @@ import { AppLevelService } from '../app-level-service';
     ProductDetailComponent,
     ProductAccordionComponent,
     ProductEditComponent,
-    ProductCodeValidator],
+    ProductCodeValidator,
+    ProductFilterPipe,
+    ProductEditInfoComponent,
+    ProductEditTagsComponent],
     // replace with useClass implementation during demo
   providers: [ProductService,
-    AppLevelService]
+    AppLevelService,
+    ProductResolver,
+    ProductEditGuard]
 })
 export class ProductModule { }

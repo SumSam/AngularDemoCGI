@@ -1,16 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
+<h1 class="glyphicon glyphicon-refresh glyphicon-spin spinner" *ngIf="loading">Loading...</h1>
 <div>
   <nav class='navbar navbar-default'>
     <div class='container-fluid'>
       <a class='navbar-brand'>{{pageTitle}}</a>
       <ul class='nav navbar-nav'>
         <li><a [routerLink]="['/welcome']">Home</a></li>
-        <li><a [routerLink]="['/products']">Product List</a></li>
-        <li><a [routerLink]="['/productsAcc']">Product List Accordion</a></li>
+        <li><a [routerLink]="['/products']">Products</a></li>
+        <!-- <li><a [routerLink]="['/productsAcc']">Product List Accordion</a></li> -->
+        <li><a [routerLink]="['/login']">Login</a></li>
+        <li><a [routerLink]="[{outlets: {popup: ['messages']} }]">Show Secondary Route</a></li>
       </ul>
     </div>
   </nav>
-  <div class='container'>
-    <router-outlet></router-outlet>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-10">
+              <router-outlet></router-outlet>
+          </div>
+          <div class="col-md-2">
+              <router-outlet name="popup"></router-outlet>
+          </div>
+      </div>
   </div>
  </div>
