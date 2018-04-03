@@ -16,7 +16,7 @@ const routes: Routes = [{ path: 'welcome', component: WelcomeComponent },
 { path: '**', component: PageNotFoundComponent }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: SelectivePreLoadStrategy })],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true, preloadingStrategy: SelectivePreLoadStrategy })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

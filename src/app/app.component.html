@@ -7,7 +7,7 @@
         <li><a [routerLink]="['/welcome']">Home</a></li>
         <li><a [routerLink]="['/products']">Products</a></li>
         <!-- <li><a [routerLink]="['/productsAcc']">Product List Accordion</a></li> -->
-        <li><a [routerLink]="['/login']">Login</a></li>
+        <li><a [routerLink]="[{outlets: {primary: ['login'], popup: ['messages']} }]">Login with Secondary</a></li>
         <li><a [routerLink]="[{outlets: {popup: ['messages']} }]">Show Secondary Route</a></li>
       </ul>
     </div>
