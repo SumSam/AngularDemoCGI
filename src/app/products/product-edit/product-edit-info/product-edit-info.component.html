@@ -11,7 +11,8 @@
           <input class="form-control" type="text" placeholder="Name (required)" required minlength="3" [(ngModel)]="product.productName"
             name="productName" #productNameVar="ngModel" />
           <span class="help-block" *ngIf="(productNameVar?.touched ||
-                                           productNameVar?.dirty || product?.productId !== 0) &&
+                                           productNameVar?.dirty || 
+                                           product?.productId !== 0) &&
                                            productNameVar?.errors">
             <span *ngIf="productForm.getControl(productNameVar).hasError('required')">
               Product name is required.
@@ -68,7 +69,6 @@
           </div>
         </div>
       </div>
-
       <div class="has-error" *ngIf="errorMessage">{{errorMessage}}</div>
     </fieldset>
   </form>

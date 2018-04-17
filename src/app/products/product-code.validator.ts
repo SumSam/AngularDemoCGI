@@ -2,8 +2,8 @@ import { AbstractControl, ValidatorFn, Validator, NG_VALIDATORS } from '@angular
 import { Directive } from '@angular/core';
 
 // validation function
-function validateCodeFactory(): ValidatorFn {
-    return (c: AbstractControl) => {
+export function validateCleanProduct(): ValidatorFn {
+    return (c: AbstractControl): {[key: string]: boolean } | null => {
 
         const isValid = c.value ? c.value.match(/^[A-Z0-9]/i) : true;
 
@@ -25,7 +25,7 @@ export class ProductCodeValidator implements Validator {
     validator: ValidatorFn;
 
     constructor() {
-        this.validator = validateCodeFactory();
+        this.validator = validateCleanProduct();
         }
     validate(c: AbstractControl): { [key: string]: any; } {
         return this.validator(c);

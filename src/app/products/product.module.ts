@@ -16,6 +16,7 @@ import { ProductResolver } from './product-resolver.service';
 import { ProductEditInfoComponent } from './product-edit/product-edit-info/product-edit-info.component';
 import { ProductEditTagsComponent } from './product-edit/product-edit-tags/product-edit-tags.component';
 import { ProductEditGuard } from './product-edit-guard.service';
+import { ProductEditReactiveInfoComponent } from './product-edit/product-edit-reactive-info/product-edit-reactive-info.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { ProductEditGuard } from './product-edit-guard.service';
     ProductCodeValidator,
     ProductFilterPipe,
     ProductEditInfoComponent,
+    ProductEditReactiveInfoComponent,
     ProductEditTagsComponent],
     // replace with useClass implementation during demo
   providers: [ProductService,

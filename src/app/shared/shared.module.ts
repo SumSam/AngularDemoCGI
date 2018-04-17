@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccordionComponent } from './accordion/accordion.component';
 import { HighlightDirective } from './highlight/highlight.directive';
 import { CustomLoopDirective } from './custom-loop/custom-loop.directive';
@@ -13,6 +13,7 @@ import { SharedModuleService } from './shared-module.service';
   exports : [
     CommonModule,
     FormsModule, // IMP! All directives for template driven forms reside in this module.
+    ReactiveFormsModule,
     AccordionComponent,
     HighlightDirective,
     CustomLoopDirective,
