@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { SharedModuleService } from '../../shared/shared-module.service';
+import { CoreModuleService } from '../../core/core-module.service';
 
 @Component({
   selector: 'ad-login',
@@ -12,7 +14,9 @@ export class LoginComponent {
   errorMessage: string;
   pageTitle = 'Log In';
   constructor(private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private sharedModuleService: SharedModuleService,
+    public coreModuleServiceInstance: CoreModuleService) { }
 
   login(loginForm: NgForm) {
     if (loginForm && loginForm.valid) {

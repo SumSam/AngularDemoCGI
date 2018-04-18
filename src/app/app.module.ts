@@ -16,6 +16,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { UserModule } from './user/user.module';
 import { MessageModule } from './messages/messages.module';
 import { SelectivePreLoadStrategy } from './selective-pre-load-strategy.service';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SelectivePreLoadStrategy } from './selective-pre-load-strategy.service'
     BrowserModule,
     HttpClientModule,
     InMemoryWebApiModule.forRoot(ProductData, { delay: 200 }),
+    CoreModule.forRoot(),
     UserModule,
     MessageModule,
     AppRoutingModule

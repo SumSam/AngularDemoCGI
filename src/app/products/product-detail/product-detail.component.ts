@@ -9,6 +9,7 @@ import { SharedModuleService } from '../../shared/shared-module.service';
 import { ComponentLevelService } from '../product-detail/component-level-service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
+import { CoreModuleService } from '../../core/core-module.service';
 
 @Component({
   selector: 'ad-product-detail',
@@ -29,14 +30,17 @@ export class ProductDetailComponent implements OnChanges, OnInit, DoCheck, OnDes
   codeFromParent: string;
   errorMessage: string;
   prodSubscription: Subscription;
+  componentLevelServiceInstance: ComponentLevelService;
 
   constructor(private _productService: ProductService,
     private cdRef: ChangeDetectorRef,
     private _route: ActivatedRoute,
     private _router: Router,
-    appLevelServiceInstance: AppLevelService,
-  @Optional() @Host()componentLevelService: ComponentLevelService, // IMP! Also @Optional() available instance set to null
-sharedModuleService: SharedModuleService) {
+    public appLevelServiceInstance: AppLevelService,
+    @Optional() @Host()componentLevelService: ComponentLevelService, // IMP! Also @Optional() available instance set to null
+    public sharedModuleServiceInstance: SharedModuleService,
+    public coreModuleServiceInstance: CoreModuleService) {
+      this.componentLevelServiceInstance = componentLevelService;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
