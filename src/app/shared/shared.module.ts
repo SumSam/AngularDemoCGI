@@ -6,6 +6,7 @@ import { HighlightDirective } from './highlight/highlight.directive';
 import { CustomLoopDirective } from './custom-loop/custom-loop.directive';
 import { ConvertToSpacesPipe } from './convert-to-spaces.pipe';
 import { SharedModuleService } from './shared-module.service';
+import { DynamicComponentLoaderService } from './dynamicComponentLoader.service';
 
 
 @NgModule({
@@ -20,6 +21,6 @@ import { SharedModuleService } from './shared-module.service';
     ConvertToSpacesPipe
   ],
   declarations: [AccordionComponent, HighlightDirective, CustomLoopDirective, ConvertToSpacesPipe ],
-  providers: [SharedModuleService],
+  providers: [SharedModuleService, DynamicComponentLoaderService],
 })
 export class SharedModule { }

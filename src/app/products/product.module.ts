@@ -17,6 +17,7 @@ import { ProductEditInfoComponent } from './product-edit/product-edit-info/produ
 import { ProductEditTagsComponent } from './product-edit/product-edit-tags/product-edit-tags.component';
 import { ProductEditGuard } from './product-edit-guard.service';
 import { ProductEditReactiveInfoComponent } from './product-edit/product-edit-reactive-info/product-edit-reactive-info.component';
+import { ProductDynamicComponent } from './product-dynamic/product-dynamic.component';
 
 @NgModule({
   imports: [
@@ -31,8 +32,11 @@ import { ProductEditReactiveInfoComponent } from './product-edit/product-edit-re
     ProductFilterPipe,
     ProductEditInfoComponent,
     ProductEditReactiveInfoComponent,
-    ProductEditTagsComponent],
-    // replace with useClass implementation during demo
+    ProductEditTagsComponent,
+    ProductDynamicComponent
+  ],
+  entryComponents: [ProductDynamicComponent],
+  // replace with useClass implementation during demo
   providers: [ProductService,
     AppLevelService,
     ProductResolver,

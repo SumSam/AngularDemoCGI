@@ -1,6 +1,6 @@
 import {
   Component, OnInit, OnChanges, DoCheck, SimpleChange, Input, EventEmitter,
-  Output, OnDestroy, SimpleChanges, ChangeDetectionStrategy, ChangeDetectorRef, Host, Optional
+  Output, OnDestroy, SimpleChanges, ChangeDetectionStrategy, ChangeDetectorRef, Host, Optional, ViewChild, ViewContainerRef
 } from '@angular/core';
 import { ProductService } from '../product.service';
 import { IProduct } from '../product';
@@ -10,6 +10,8 @@ import { ComponentLevelService } from '../product-detail/component-level-service
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import { CoreModuleService } from '../../core/core-module.service';
+import { DynamicComponentLoaderService } from '../../shared/dynamicComponentLoader.service';
+import { ProductDynamicComponent } from '../product-dynamic/product-dynamic.component';
 
 @Component({
   selector: 'ad-product-detail',
@@ -25,6 +27,9 @@ export class ProductDetailComponent implements OnChanges, OnInit, DoCheck, OnDes
 
   // @Input() product: IProduct;
   @Output() callParent = new EventEmitter<string>();
+  @ViewChild('dynamicCompHost', { read: ViewContainerRef }) dynamicCompHost;
+
+  yourComponentHost;
   product: IProduct;
   pageTitle = 'Product Detail';
   codeFromParent: string;
@@ -32,15 +37,17 @@ export class ProductDetailComponent implements OnChanges, OnInit, DoCheck, OnDes
   prodSubscription: Subscription;
   componentLevelServiceInstance: ComponentLevelService;
 
+
   constructor(private _productService: ProductService,
     private cdRef: ChangeDetectorRef,
     private _route: ActivatedRoute,
     private _router: Router,
     public appLevelServiceInstance: AppLevelService,
-    @Optional() @Host()componentLevelService: ComponentLevelService, // IMP! Also @Optional() available instance set to null
+    @Optional() @Host() componentLevelService: ComponentLevelService, // IMP! Also @Optional() available instance set to null
     public sharedModuleServiceInstance: SharedModuleService,
-    public coreModuleServiceInstance: CoreModuleService) {
-      this.componentLevelServiceInstance = componentLevelService;
+    public coreModuleServiceInstance: CoreModuleService,
+    private dynamicComponentLoaderService: DynamicComponentLoaderService) {
+    this.componentLevelServiceInstance = componentLevelService;
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -67,7 +74,7 @@ export class ProductDetailComponent implements OnChanges, OnInit, DoCheck, OnDes
   }
   getProduct(id: number) {
     this.prodSubscription = this._productService.getProduct(id).subscribe(
-      product =>  {
+      product => {
         this.product = product;
       },
       error => this.errorMessage = <any>error);
@@ -82,6 +89,11 @@ export class ProductDetailComponent implements OnChanges, OnInit, DoCheck, OnDes
 
   onBack(): void {
     this._router.navigate(['/products'], { preserveQueryParams: true });
+  }
+
+  loadDynamicComponent(): void {
+    this.dynamicComponentLoaderService.rootViewContainer = this.dynamicCompHost;
+    this.dynamicComponentLoaderService.addDynamicComponent(ProductDynamicComponent);
   }
 
 }
