@@ -5,6 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../product.service';
 import { NgForm, FormBuilder, FormGroup, Validators, AbstractControl, FormArray } from '@angular/forms';
 import { validateCleanProduct } from '../../product-code.validator';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/operator/debounceTime';
 
 function matcher(c: AbstractControl): { [key: string]: boolean } | null {
   const nameControl = c.get('productName');
@@ -108,4 +113,15 @@ export class ProductEditReactiveInfoComponent implements OnInit, OnDestroy {
     });
   }
 
+  search = (text: Observable<string>) => {
+
+    return text.debounceTime(200)
+      .distinctUntilChanged()
+      .mergeMap(term => term.length < 2 ? []
+        : this._productService.getProducts()
+        .map(products => products
+                          .filter(x => x.productName.toLowerCase().indexOf(term.toLowerCase()) > -1)
+                          .map(x => x.productName))
+      );
+    }
 }

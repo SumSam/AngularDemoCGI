@@ -5,7 +5,11 @@
       <label class="col-md-2 control-label" for="productNameId">Product Name</label>
 
       <div class="col-md-8">
-        <input class="form-control" type="text" placeholder="Name (required)" formControlName="productName" />
+        <input class="form-control" 
+               type="text" 
+               placeholder="Name (required)" 
+               formControlName="productName" 
+               [ngbTypeahead]="search"/>
 
         <span class="help-block" *ngIf="(productForm.get('productName').touched || 
         productForm.get('productName').dirty) && 
