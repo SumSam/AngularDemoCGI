@@ -1,11 +1,9 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpErrorResponse } from '@angular/common/http';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/filter';
-import { HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
 
+import { HttpResponse } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class AppHttpInterceptor implements HttpInterceptor {
@@ -25,9 +23,9 @@ export class AppHttpInterceptor implements HttpInterceptor {
 
         // FOR RESPONSE HANDLING
         // send the newly created request
-        return next.handle(interceptedReq)
+        return next.handle(interceptedReq).pipe(
             // .filter(x => x instanceof HttpResponse)
-            .map((event: HttpEvent<any>) => {
+            map((event: HttpEvent<any>) => {
                 if (event instanceof HttpResponse) {
                     console.log('HttpResponse');
                 } else {
@@ -35,8 +33,8 @@ export class AppHttpInterceptor implements HttpInterceptor {
                 }
                 console.log(event);
                 return event;
-            })
-            .catch((err: any, caught) => { // Caught at service as well as interceptor
+            }),
+            catchError((err: any, caught) => { // Caught at service as well as interceptor
                 console.log('Error');
                 console.log(err);
                 if (err instanceof HttpErrorResponse) {
@@ -44,6 +42,7 @@ export class AppHttpInterceptor implements HttpInterceptor {
                     }
                     return Observable.throw(err);
                 }
-            });
+            })
+        );
     }
 }
